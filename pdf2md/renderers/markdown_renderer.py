@@ -5,6 +5,9 @@ from pdf2md.models.image import ImageBlock
 from pdf2md.utils.path_utils import (
     relative_path
 )
+from pdf2md.utils.file_writer import (
+    write_text
+)
 
 class MarkdownRenderer:
 
@@ -44,13 +47,10 @@ class MarkdownRenderer:
         content: str
     ):
 
-        with open(
-            self.markdown_path,
-            "w",
-            encoding="utf-8"
-        ) as f:
-
-            f.write(content)
+        write_text(
+            str(self.markdown_path),
+            content
+        )
 
     def _render_metadata(
         self,

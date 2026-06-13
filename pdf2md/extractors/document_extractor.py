@@ -1,4 +1,5 @@
 from pathlib import Path
+from tqdm import tqdm
 
 from pdf2md.models.document import (
     Document
@@ -28,8 +29,10 @@ def extract_document(
         document
     )
 
-    for page_index in range(
-        len(pdf_doc)
+    for page_index in tqdm(
+        range(len(pdf_doc)),
+        desc="Extracting",
+        unit="page"
     ):
 
         pdf_page = pdf_doc[
