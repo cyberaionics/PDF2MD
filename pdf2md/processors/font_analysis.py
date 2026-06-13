@@ -22,6 +22,4 @@ def font_distribution(
                     )
                 )
 
-    return Counter(
-        sizes
-    )
+    return Counter(sizes)
