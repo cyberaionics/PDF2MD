@@ -7,9 +7,6 @@ from .image import ImageBlock
 
 @dataclass
 class Page:
-    """
-    Represents a PDF page.
-    """
 
     number: int
 
@@ -20,3 +17,6 @@ class Page:
     image_blocks: List[ImageBlock] = field(
         default_factory=list
     )
+
+    width: float = 0
+    height: float = 0
