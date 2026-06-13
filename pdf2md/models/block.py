@@ -4,9 +4,6 @@ from typing import Tuple
 
 @dataclass
 class Block:
-    """
-    Generic document block.
-    """
 
     block_type: str
     content: str
@@ -18,8 +15,15 @@ class Block:
 
     font_size: float = 0
 
+    level: int = 0
+
     @property
-    def bbox(self) -> Tuple[float, float, float, float]:
+    def bbox(self) -> Tuple[
+        float,
+        float,
+        float,
+        float
+    ]:
         return (
             self.x0,
             self.y0,
