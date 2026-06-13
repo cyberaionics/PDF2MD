@@ -2,7 +2,9 @@ from pathlib import Path
 
 from pdf2md.models.block import Block
 from pdf2md.models.image import ImageBlock
-
+from pdf2md.utils.path_utils import (
+    relative_path
+)
 
 class MarkdownRenderer:
 
@@ -135,10 +137,10 @@ class MarkdownRenderer:
         image: ImageBlock
     ):
 
-        relative = image.path.replace(
-            "\\",
-            "/"
-        )
+        relative = relative_path(
+            str(self.markdown_path),
+            image.path
+        ).replace("\\", "/")
 
         self.lines.append(
             f"![Image]({relative})"
