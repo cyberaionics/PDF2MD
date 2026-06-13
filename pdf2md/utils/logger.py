@@ -2,20 +2,25 @@ import logging
 
 
 def get_logger(
-    name: str = "pdf2md"
+    name="pdf2md"
 ):
-    logger = logging.getLogger(name)
+
+    logger = logging.getLogger(
+        name
+    )
 
     if logger.handlers:
         return logger
 
-    logger.setLevel(logging.INFO)
-
-    handler = logging.StreamHandler()
+    logger.setLevel(
+        logging.INFO
+    )
 
     formatter = logging.Formatter(
         "[%(levelname)s] %(message)s"
     )
+
+    handler = logging.StreamHandler()
 
     handler.setFormatter(
         formatter
